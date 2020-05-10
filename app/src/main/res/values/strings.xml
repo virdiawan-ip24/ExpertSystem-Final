@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ExpertSystem-Final</string>
+    <string name="radio_laki">Laki-Laki</string>
+    <string name="radio_perempuan">Perempuan</string>
+</resources>
