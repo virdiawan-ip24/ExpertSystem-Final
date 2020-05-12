@@ -2,7 +2,9 @@ package com.example.expertsystem_final;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,10 +13,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
 
 public class DataPasienActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -96,11 +101,113 @@ public class DataPasienActivity extends AppCompatActivity implements View.OnClic
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    private void updatePasien() {
+        final String nama = editTextNama.getText().toString().trim();
+        final String usia = editTextUsia.getText().toString().trim();
+        final String alamat = editTextAlamat.getText().toString().trim();
+        final String jenis_kelamin = (String) radioButton.getText();
+
+        class UpdatePasien extends AsyncTask<Void,Void,String> {
+            ProgressDialog loading;
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading = ProgressDialog.show(DataPasienActivity.this,
+                                                "Updating",
+                                            "Wait...",
+                                        false,
+                                          false);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loading.dismiss();
+                Toast.makeText(DataPasienActivity.this,s,Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected String doInBackground(Void... params) {
+                HashMap<String,String> hashMap = new HashMap<>();
+                hashMap.put(DBConfigActivity.KEY_ID_PASIEN,id);
+                hashMap.put(DBConfigActivity.KEY_NAMA_PASIEN,nama);
+                hashMap.put(DBConfigActivity.KEY_USIA_PASIEN,usia);
+                hashMap.put(DBConfigActivity.KEY_ALAMAT,alamat);
+                hashMap.put(DBConfigActivity.KEY_JENIS_KELAMIN,jenis_kelamin);
+
+                RequestHandlerActivity rh = new RequestHandlerActivity();
+                String s = rh.sendPostRequest(DBConfigActivity.URL_UPDATE,hashMap);
+                return s;
+            }
+        }
+        UpdatePasien up = new UpdatePasien();
+        up.execute();
+    }
+
+    private void deletePasien() {
+        class DeletePasien extends AsyncTask<Void,Void,String> {
+            ProgressDialog loading;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading = ProgressDialog.show(DataPasienActivity.this,
+                                                "Updating",
+                                            "Wait...",
+                                        false,
+                                          false);
+            }
+
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loading.dismiss();
+                Toast.makeText(DataPasienActivity.this,s,Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected String doInBackground(Void... params) {
+                RequestHandlerActivity rh = new RequestHandlerActivity();
+                String s = rh.sendGetRequestParam(DBConfigActivity.URL_DELETE,id);
+                return s;
+            }
+        }
+        DeletePasien dp = new DeletePasien();
+        dp.execute();
+    }
+
+    private void confirmDeletePasien() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("Apakah Anda Yakin Ingin Menghapus?");
+
+        alertDialogBuilder.setPositiveButton("Ya",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        deletePasien();
+                        startActivity(new Intent(DataPasienActivity.this,TampilPasienActivity.class));
+                    }
+                });
+
+        alertDialogBuilder.setNegativeButton("Tidak",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 
     @Override
     public void onClick(View v) {
+        if (v == buttonUpdate) {
+            updatePasien();
+        }
 
+        if (v == buttonDelete) {
+            confirmDeletePasien();
+        }
     }
 }
