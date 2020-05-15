@@ -1,6 +1,6 @@
-package com.example.expertsystem_final;
+package com.example.expertsystem_final.DBConfig;
 
-public class DBConfigActivity {
+public class DBConfigPasienActivity {
     public static final String URL_ADD = "http://localhost/admin-finalproject/create.php";
     public static final String URL_GET = "http://localhost/admin-finalproject/read.php";
     public static final String URL_UPDATE = "http://localhost/admin-finalproject/update.php";
