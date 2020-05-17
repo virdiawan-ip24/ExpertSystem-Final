@@ -2,4 +2,9 @@
     <string name="app_name">ExpertSystem-Final</string>
     <string name="radio_laki">Laki-Laki</string>
     <string name="radio_perempuan">Perempuan</string>
+    <string name="kondisi_ya">Pasti Ya</string>
+    <string name="kondisi_maybe_ya">Kemungkinan Besar Ya</string>
+    <string name="kondisi_tidak_tahu">Tidak Tahu</string>
+    <string name="kondisi_maybe_tidak">Kemungkinan Besar Tidak</string>
+    <string name="kondisi_tidak">Pasti Tidak</string>
 </resources>
