@@ -12,6 +12,8 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.example.expertsystem_final.DBConfig.DBConfigPasienActivity;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,22 +41,22 @@ public class TampilPasienActivity extends AppCompatActivity implements ListView.
 
         try {
             jsonObject = new JSONObject(JSON_STRING);
-            JSONArray result = jsonObject.getJSONArray(DBConfigActivity.TAG_JSON_ARRAY);
+            JSONArray result = jsonObject.getJSONArray(DBConfigPasienActivity.TAG_JSON_ARRAY);
 
             for (int i = 0; i < result.length(); i++) {
                 JSONObject jo = result.getJSONObject(i);
-                String id_pasien = jo.getString(DBConfigActivity.TAG_ID_PASIEN);
-                String nama_pasien = jo.getString(DBConfigActivity.TAG_NAMA_PASIEN);
-                String jenis_kelamin = jo.getString(DBConfigActivity.TAG_JENIS_KELAMIN);
-                String usia_pasien = jo.getString(DBConfigActivity.TAG_USIA_PASIEN);
-                String alamat = jo.getString(DBConfigActivity.TAG_ALAMAT);
+                String id_pasien = jo.getString(DBConfigPasienActivity.TAG_ID_PASIEN);
+                String nama_pasien = jo.getString(DBConfigPasienActivity.TAG_NAMA_PASIEN);
+                String jenis_kelamin = jo.getString(DBConfigPasienActivity.TAG_JENIS_KELAMIN);
+                String usia_pasien = jo.getString(DBConfigPasienActivity.TAG_USIA_PASIEN);
+                String alamat = jo.getString(DBConfigPasienActivity.TAG_ALAMAT);
 
                 HashMap<String,String> pasien = new HashMap<>();
-                pasien.put(DBConfigActivity.TAG_ID_PASIEN,id_pasien);
-                pasien.put(DBConfigActivity.TAG_NAMA_PASIEN,nama_pasien);
-                pasien.put(DBConfigActivity.TAG_JENIS_KELAMIN,jenis_kelamin);
-                pasien.put(DBConfigActivity.TAG_USIA_PASIEN,usia_pasien);
-                pasien.put(DBConfigActivity.TAG_ALAMAT,alamat);
+                pasien.put(DBConfigPasienActivity.TAG_ID_PASIEN,id_pasien);
+                pasien.put(DBConfigPasienActivity.TAG_NAMA_PASIEN,nama_pasien);
+                pasien.put(DBConfigPasienActivity.TAG_JENIS_KELAMIN,jenis_kelamin);
+                pasien.put(DBConfigPasienActivity.TAG_USIA_PASIEN,usia_pasien);
+                pasien.put(DBConfigPasienActivity.TAG_ALAMAT,alamat);
                 list.add(pasien);
             }
         } catch (JSONException e) {
@@ -63,11 +65,11 @@ public class TampilPasienActivity extends AppCompatActivity implements ListView.
 
         ListAdapter adapter = new SimpleAdapter(
                 TampilPasienActivity.this, list, R.layout.activity_list_pasien,
-                new String[] {DBConfigActivity.TAG_ID_PASIEN,
-                              DBConfigActivity.TAG_NAMA_PASIEN,
-                              DBConfigActivity.TAG_JENIS_KELAMIN,
-                              DBConfigActivity.TAG_USIA_PASIEN,
-                              DBConfigActivity.TAG_ALAMAT},
+                new String[] {DBConfigPasienActivity.TAG_ID_PASIEN,
+                              DBConfigPasienActivity.TAG_NAMA_PASIEN,
+                              DBConfigPasienActivity.TAG_JENIS_KELAMIN,
+                              DBConfigPasienActivity.TAG_USIA_PASIEN,
+                              DBConfigPasienActivity.TAG_ALAMAT},
                 new int[]{R.id.id_pasien,
                           R.id.nama_pasien,
                           R.id.jenis_kelamin,
@@ -101,7 +103,7 @@ public class TampilPasienActivity extends AppCompatActivity implements ListView.
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandlerActivity rh = new RequestHandlerActivity();
-                String s = rh.sendGetRequest(DBConfigActivity.URL_GET);
+                String s = rh.sendGetRequest(DBConfigPasienActivity.URL_GET);
                 return s;
             }
         }
@@ -113,8 +115,8 @@ public class TampilPasienActivity extends AppCompatActivity implements ListView.
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent(this, TampilPasienActivity.class);
         HashMap<String,String> map = (HashMap) parent.getItemAtPosition(position);
-        String id_pasien = map.get(DBConfigActivity.TAG_ID_PASIEN).toString();
-        intent.putExtra(DBConfigActivity.ID_PASIEN,id);
+        String id_pasien = map.get(DBConfigPasienActivity.TAG_ID_PASIEN).toString();
+        intent.putExtra(DBConfigPasienActivity.ID_PASIEN,id);
         startActivity(intent);
     }
 }

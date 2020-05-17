@@ -13,6 +13,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.expertsystem_final.DBConfig.DBConfigPasienActivity;
+
 import java.util.HashMap;
 
 public class AddPasienActivity extends AppCompatActivity implements View.OnClickListener {
@@ -77,13 +79,13 @@ public class AddPasienActivity extends AppCompatActivity implements View.OnClick
             @Override
             protected String doInBackground(Void... v) {
                 HashMap<String,String> params = new HashMap<>();
-                params.put(DBConfigActivity.KEY_NAMA_PASIEN,nama);
-                params.put(DBConfigActivity.KEY_USIA_PASIEN,usia);
-                params.put(DBConfigActivity.KEY_ALAMAT,alamat);
-                params.put(DBConfigActivity.KEY_JENIS_KELAMIN,jenis_kelamin);
+                params.put(DBConfigPasienActivity.KEY_NAMA_PASIEN,nama);
+                params.put(DBConfigPasienActivity.KEY_USIA_PASIEN,usia);
+                params.put(DBConfigPasienActivity.KEY_ALAMAT,alamat);
+                params.put(DBConfigPasienActivity.KEY_JENIS_KELAMIN,jenis_kelamin);
 
                 RequestHandlerActivity rh = new RequestHandlerActivity();
-                String res = rh.sendPostRequest(DBConfigActivity.URL_ADD,params);
+                String res = rh.sendPostRequest(DBConfigPasienActivity.URL_ADD,params);
                 return res;
             }
         }

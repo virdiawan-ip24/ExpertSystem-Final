@@ -15,8 +15,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.expertsystem_final.DBConfig.DBConfigPasienActivity;
+
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -43,7 +44,7 @@ public class DataPasienActivity extends AppCompatActivity implements View.OnClic
 
         Intent intent = getIntent();
 
-        id = intent.getStringExtra(DBConfigActivity.ID_PASIEN);
+        id = intent.getStringExtra(DBConfigPasienActivity.ID_PASIEN);
 
         editTextId = (EditText) findViewById(R.id.editTextId);
         editTextNama = (EditText) findViewById(R.id.editTextNama);
@@ -84,7 +85,7 @@ public class DataPasienActivity extends AppCompatActivity implements View.OnClic
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandlerActivity rh = new RequestHandlerActivity();
-                String s = rh.sendGetRequestParam(DBConfigActivity.URL_GET,id);
+                String s = rh.sendGetRequestParam(DBConfigPasienActivity.URL_GET,id);
                 return s;
             }
         }
@@ -95,9 +96,9 @@ public class DataPasienActivity extends AppCompatActivity implements View.OnClic
     private void showPasien(String json) {
         try {
             JSONObject jsonObject = new JSONObject(json);
-            JSONArray result = jsonObject.getJSONArray(DBConfigActivity.TAG_JSON_ARRAY);
+            JSONArray result = jsonObject.getJSONArray(DBConfigPasienActivity.TAG_JSON_ARRAY);
             JSONObject jsonObject1 = result.getJSONObject(0);
-            String nama = jsonObject1.getString(DBConfigActivity.TAG_NAMA_PASIEN);
+            String nama = jsonObject1.getString(DBConfigPasienActivity.TAG_NAMA_PASIEN);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -131,14 +132,14 @@ public class DataPasienActivity extends AppCompatActivity implements View.OnClic
             @Override
             protected String doInBackground(Void... params) {
                 HashMap<String,String> hashMap = new HashMap<>();
-                hashMap.put(DBConfigActivity.KEY_ID_PASIEN,id);
-                hashMap.put(DBConfigActivity.KEY_NAMA_PASIEN,nama);
-                hashMap.put(DBConfigActivity.KEY_USIA_PASIEN,usia);
-                hashMap.put(DBConfigActivity.KEY_ALAMAT,alamat);
-                hashMap.put(DBConfigActivity.KEY_JENIS_KELAMIN,jenis_kelamin);
+                hashMap.put(DBConfigPasienActivity.KEY_ID_PASIEN,id);
+                hashMap.put(DBConfigPasienActivity.KEY_NAMA_PASIEN,nama);
+                hashMap.put(DBConfigPasienActivity.KEY_USIA_PASIEN,usia);
+                hashMap.put(DBConfigPasienActivity.KEY_ALAMAT,alamat);
+                hashMap.put(DBConfigPasienActivity.KEY_JENIS_KELAMIN,jenis_kelamin);
 
                 RequestHandlerActivity rh = new RequestHandlerActivity();
-                String s = rh.sendPostRequest(DBConfigActivity.URL_UPDATE,hashMap);
+                String s = rh.sendPostRequest(DBConfigPasienActivity.URL_UPDATE,hashMap);
                 return s;
             }
         }
@@ -169,7 +170,7 @@ public class DataPasienActivity extends AppCompatActivity implements View.OnClic
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandlerActivity rh = new RequestHandlerActivity();
-                String s = rh.sendGetRequestParam(DBConfigActivity.URL_DELETE,id);
+                String s = rh.sendGetRequestParam(DBConfigPasienActivity.URL_DELETE,id);
                 return s;
             }
         }

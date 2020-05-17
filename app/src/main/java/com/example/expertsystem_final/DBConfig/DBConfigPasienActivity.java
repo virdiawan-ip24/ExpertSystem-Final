@@ -1,10 +1,10 @@
 package com.example.expertsystem_final.DBConfig;
 
 public class DBConfigPasienActivity {
-    public static final String URL_ADD = "http://localhost/admin-finalproject/create.php";
-    public static final String URL_GET = "http://localhost/admin-finalproject/read.php";
-    public static final String URL_UPDATE = "http://localhost/admin-finalproject/update.php";
-    public static final String URL_DELETE = "http://localhost/admin-finalproject/delete.php?id_pasien=";
+    public static final String URL_ADD = "http://localhost/admin-finalproject/pasien/create_pasien.php";
+    public static final String URL_GET = "http://localhost/admin-finalproject/pasien/read_pasien.php";
+    public static final String URL_UPDATE = "http://localhost/admin-finalproject/pasien/update_pasien.php";
+    public static final String URL_DELETE = "http://localhost/admin-finalproject/pasien/delete_pasien.php?id_pasien=";
 
     public static final String KEY_ID_PASIEN = "id_pasien";
     public static final String KEY_NAMA_PASIEN = "nama_pasien";
