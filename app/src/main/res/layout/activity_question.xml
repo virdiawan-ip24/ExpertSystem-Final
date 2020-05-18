@@ -1,10 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp"
+    android:paddingBottom="16dp"
+    android:paddingTop="16dp"
     tools:context=".QuestionActivity">
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/textQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Survey Diagnosa"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        <RadioGroup
+            android:id="@+id/radioKondisi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.04">
+
+            <RadioButton
+                android:id="@+id/kondisiYa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/kondisi_ya"/>
+            <RadioButton
+                android:id="@+id/kondisiMaybeYa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/kondisi_maybe_ya"/>
+            <RadioButton
+                android:id="@+id/kondisiTidakTahu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/kondisi_tidak_tahu"/>
+            <RadioButton
+                android:id="@+id/kondisiMaybeTidak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/kondisi_maybe_tidak"/>
+            <RadioButton
+                android:id="@+id/kondisiTidak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/kondisi_tidak"/>
+        </RadioGroup>
+        <Button
+            android:id="@+id/next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Next"/>
+    </LinearLayout>
+
+</RelativeLayout>
