@@ -15,10 +15,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button button_menu_pasien = (Button) findViewById(R.id.button_menu_pasien);
+        Button button_menu_question = (Button) findViewById(R.id.button_menu_question);
+
         button_menu_pasien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,AddPasienActivity.class);
+                startActivity(i);
+            }
+        });
+
+        button_menu_question.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,QuestionActivity.class);
                 startActivity(i);
             }
         });

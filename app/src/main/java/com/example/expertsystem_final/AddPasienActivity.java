@@ -28,6 +28,7 @@ public class AddPasienActivity extends AppCompatActivity implements View.OnClick
 
     private Button buttonAdd;
     private Button buttonView;
+    private Button buttonKembali;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +45,11 @@ public class AddPasienActivity extends AppCompatActivity implements View.OnClick
 
         buttonAdd = (Button) findViewById(R.id.buttonAdd);
         buttonView = (Button) findViewById(R.id.buttonView);
+        buttonKembali = (Button) findViewById(R.id.button_kembali);
 
         buttonAdd.setOnClickListener(this);
         buttonView.setOnClickListener(this);
+        buttonKembali.setOnClickListener(this);
     }
 
     private void addPasien() {
@@ -102,6 +105,10 @@ public class AddPasienActivity extends AppCompatActivity implements View.OnClick
 
         if (v == buttonView) {
             startActivity(new Intent(this, TampilPasienActivity.class));
+        }
+
+        if (v == buttonKembali) {
+            startActivity(new Intent(this,MainActivity.class));
         }
     }
 }
