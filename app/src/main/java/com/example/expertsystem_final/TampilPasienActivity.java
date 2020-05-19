@@ -30,7 +30,7 @@ public class TampilPasienActivity extends AppCompatActivity implements ListView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tampil_semua_pasien);
-        listView = (ListView) findViewById(R.id.listView);
+        listView = (ListView) findViewById(R.id.listPasienView);
         listView.setOnItemClickListener(this);
         getJSON();
     }
