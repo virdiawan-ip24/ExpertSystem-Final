@@ -8,7 +8,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context=".ListQuestionActivity">
+    tools:context=".Question.ListQuestionActivity">
 
     <LinearLayout
         android:orientation="vertical"

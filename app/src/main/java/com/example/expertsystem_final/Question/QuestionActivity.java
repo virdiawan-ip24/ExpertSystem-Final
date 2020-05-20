@@ -1,9 +1,11 @@
-package com.example.expertsystem_final;
+package com.example.expertsystem_final.Question;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.expertsystem_final.R;
 
 public class QuestionActivity extends AppCompatActivity implements View.OnClickListener {
 

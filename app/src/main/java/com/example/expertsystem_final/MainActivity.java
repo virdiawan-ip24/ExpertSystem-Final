@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.expertsystem_final.Pasien.AddPasienActivity;
+import com.example.expertsystem_final.Question.QuestionActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -20,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         button_menu_pasien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,AddPasienActivity.class);
+                Intent i = new Intent(MainActivity.this, AddPasienActivity.class);
                 startActivity(i);
             }
         });
@@ -28,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         button_menu_question.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,QuestionActivity.class);
+                Intent i = new Intent(MainActivity.this, QuestionActivity.class);
                 startActivity(i);
             }
         });

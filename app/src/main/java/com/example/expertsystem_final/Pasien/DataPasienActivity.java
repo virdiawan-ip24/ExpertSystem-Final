@@ -1,4 +1,4 @@
-package com.example.expertsystem_final;
+package com.example.expertsystem_final.Pasien;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +16,8 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.expertsystem_final.DBConfig.DBConfigPasienActivity;
+import com.example.expertsystem_final.R;
+import com.example.expertsystem_final.RequestHandlerActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -187,7 +189,7 @@ public class DataPasienActivity extends AppCompatActivity implements View.OnClic
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         deletePasien();
-                        startActivity(new Intent(DataPasienActivity.this,TampilPasienActivity.class));
+                        startActivity(new Intent(DataPasienActivity.this, TampilPasienActivity.class));
                     }
                 });
 

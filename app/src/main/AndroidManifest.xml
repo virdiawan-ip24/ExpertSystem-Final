@@ -11,21 +11,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TampilQuestionActivity">
+        <activity android:name=".Question.TampilQuestionActivity">
         </activity>
-        <activity android:name=".ListQuestionActivity">
+        <activity android:name=".Question.ListQuestionActivity">
         </activity>
-        <activity android:name=".QuestionActivity">
+        <activity android:name=".Question.QuestionActivity">
         </activity>
         <activity android:name=".MainActivity">
         </activity>
-        <activity android:name=".ListPasienActivity">
+        <activity android:name=".Pasien.ListPasienActivity">
         </activity>
-        <activity android:name=".DataPasienActivity">
+        <activity android:name=".Pasien.DataPasienActivity">
         </activity>
-        <activity android:name=".TampilPasienActivity">
+        <activity android:name=".Pasien.TampilPasienActivity">
         </activity>
-        <activity android:name=".AddPasienActivity">
+        <activity android:name=".Pasien.AddPasienActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package com.example.expertsystem_final;
+package com.example.expertsystem_final.Pasien;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,8 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.example.expertsystem_final.DBConfig.DBConfigPasienActivity;
+import com.example.expertsystem_final.R;
+import com.example.expertsystem_final.RequestHandlerActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -114,9 +116,9 @@ public class TampilPasienActivity extends AppCompatActivity implements ListView.
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent(this, TampilPasienActivity.class);
-        HashMap<String,String> map = (HashMap) parent.getItemAtPosition(position);
+        HashMap map = (HashMap) parent.getItemAtPosition(position);
         String id_pasien = map.get(DBConfigPasienActivity.TAG_ID_PASIEN).toString();
-        intent.putExtra(DBConfigPasienActivity.ID_PASIEN,id);
+        intent.putExtra(DBConfigPasienActivity.ID_PASIEN,id_pasien);
         startActivity(intent);
     }
 }

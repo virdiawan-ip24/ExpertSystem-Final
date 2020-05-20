@@ -1,4 +1,4 @@
-package com.example.expertsystem_final;
+package com.example.expertsystem_final.Pasien;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,9 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.expertsystem_final.DBConfig.DBConfigPasienActivity;
+import com.example.expertsystem_final.MainActivity;
+import com.example.expertsystem_final.R;
+import com.example.expertsystem_final.RequestHandlerActivity;
 
 import java.util.HashMap;
 
@@ -108,7 +111,7 @@ public class AddPasienActivity extends AppCompatActivity implements View.OnClick
         }
 
         if (v == buttonKembali) {
-            startActivity(new Intent(this,MainActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
         }
     }
 }

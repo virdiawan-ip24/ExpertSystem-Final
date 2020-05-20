@@ -1,8 +1,10 @@
-package com.example.expertsystem_final;
+package com.example.expertsystem_final.Pasien;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.expertsystem_final.R;
 
 public class ListPasienActivity extends AppCompatActivity {
 
