@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import org.json.JSONObject;
+
 public class TampilQuestionActivity extends AppCompatActivity implements ListView.OnItemClickListener{
 
     private ListView listView;
@@ -27,12 +29,34 @@ public class TampilQuestionActivity extends AppCompatActivity implements ListVie
     private void getJSON() {
         class GetJSON extends AsyncTask<Void,Void,String> {
             ProgressDialog loading;
-            
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading = ProgressDialog.show(TampilQuestionActivity.this,
+                                                "Mengambil Data...",
+                                             "Tunggu...",
+                                         false,
+                                           false);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loading.dismiss();
+                JSON_STRING = s;
+                tampilSemuaQuestion();
+            }
+
             @Override
             protected String doInBackground(Void... voids) {
                 return null;
             }
         }
+    }
+
+    private void tampilSemuaQuestion() {
+        JSONObject jsonObject = null;
     }
 
     @Override
