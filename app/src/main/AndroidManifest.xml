@@ -11,6 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Hasil.HasilActivity">
+        </activity>
         <activity android:name=".Question.TampilQuestionActivity">
         </activity>
         <activity android:name=".Question.ListQuestionActivity">

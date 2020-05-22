@@ -44,6 +44,11 @@ public class DataPasienActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_pasien);
 
+        setupLayout();
+        getPasien();
+    }
+
+    private void setupLayout() {
         Intent intent = getIntent();
 
         id = intent.getStringExtra(DBConfigPasienActivity.ID_PASIEN);
@@ -63,8 +68,6 @@ public class DataPasienActivity extends AppCompatActivity implements View.OnClic
         buttonUpdate.setOnClickListener(this);
         buttonDelete.setOnClickListener(this);
         editTextId.setText(id);
-        
-        getPasien();
     }
 
     private void getPasien() {

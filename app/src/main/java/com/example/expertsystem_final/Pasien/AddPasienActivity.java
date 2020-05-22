@@ -38,6 +38,10 @@ public class AddPasienActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_pasien);
 
+        setupLayout();
+    }
+
+    private void setupLayout() {
         editTextNama = (EditText) findViewById(R.id.editTextNama);
         editTextUsia = (EditText) findViewById(R.id.editTextUsia);
         editTextAlamat = (EditText) findViewById(R.id.editTextAlamat);
