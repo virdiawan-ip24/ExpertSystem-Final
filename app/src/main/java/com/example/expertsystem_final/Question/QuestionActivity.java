@@ -43,6 +43,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
 
         buttonNext = (Button) findViewById(R.id.button_next);
         buttonNext.setOnClickListener(this);
+
     }
 
     private void addQuestion() {
@@ -56,6 +57,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
             for (int i=0; i<question.length(); i++) {
                 JSONObject jo = question.getJSONObject(i);
                 String nama_question = jo.getString(DBConfigQuestionActivity.TAG_NAMA_QUESTION);
+                textQuestion.setText(nama_question);
             }
         } catch (Exception e) {
             e.printStackTrace();
