@@ -86,7 +86,6 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     protected String doInBackground(Void... v) {
                         HashMap<String,String> params = new HashMap<>();
-                        params.put();
                         return null;
                     }
                 }
