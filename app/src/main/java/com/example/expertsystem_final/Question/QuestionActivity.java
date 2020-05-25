@@ -19,6 +19,8 @@ import com.example.expertsystem_final.R;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+
 public class QuestionActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView textQuestion;
@@ -83,6 +85,8 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
 
                     @Override
                     protected String doInBackground(Void... v) {
+                        HashMap<String,String> params = new HashMap<>();
+                        params.put();
                         return null;
                     }
                 }
