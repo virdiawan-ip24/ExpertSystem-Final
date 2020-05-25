@@ -2,6 +2,7 @@ package com.example.expertsystem_final.Question;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.expertsystem_final.DBConfig.DBConfigKondisiActivity;
 import com.example.expertsystem_final.DBConfig.DBConfigQuestionActivity;
@@ -58,18 +60,35 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
                 JSONObject jo = question.getJSONObject(i);
                 String nama_question = jo.getString(DBConfigQuestionActivity.TAG_NAMA_QUESTION);
                 textQuestion.setText(nama_question);
+
+                class addQuestion extends AsyncTask<Void,Void,String> {
+
+                    ProgressDialog loading;
+
+                    @Override
+                    protected void onPreExecute() {
+                        super.onPreExecute();
+                        loading = ProgressDialog.show(QuestionActivity.this,
+                                "Menambahkan",
+                                "Tunggu",
+                                false,false);
+                    }
+
+                    @Override
+                    protected void onPostExecute(String s) {
+                        super.onPostExecute(s);
+                        loading.dismiss();
+                        Toast.makeText(QuestionActivity.this,s,Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    protected String doInBackground(Void... v) {
+                        return null;
+                    }
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
-
-        class addQuestion extends AsyncTask<Void,Void,String> {
-
-
-            @Override
-            protected String doInBackground(Void... voids) {
-                return null;
-            }
         }
     }
 

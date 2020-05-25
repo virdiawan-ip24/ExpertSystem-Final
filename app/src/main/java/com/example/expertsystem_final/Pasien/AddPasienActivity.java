@@ -75,8 +75,7 @@ public class AddPasienActivity extends AppCompatActivity implements View.OnClick
                 loading = ProgressDialog.show(AddPasienActivity.this,
                                                 "Menambahkan...",
                                              "Tunggu...",
-                                         false,
-                                           false);
+                                         false, false);
             }
 
             @Override
