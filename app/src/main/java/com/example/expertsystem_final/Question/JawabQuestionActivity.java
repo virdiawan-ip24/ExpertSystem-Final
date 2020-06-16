@@ -12,16 +12,17 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.expertsystem_final.DBConfig.DBConfigKondisiActivity;
+import com.example.expertsystem_final.DBConfig.DBConfigKnowledgeActivity;
 import com.example.expertsystem_final.DBConfig.DBConfigQuestionActivity;
 import com.example.expertsystem_final.R;
+import com.example.expertsystem_final.RequestHandlerActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class QuestionActivity extends AppCompatActivity implements View.OnClickListener {
+public class JawabQuestionActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView textQuestion;
     private RadioGroup radioKondisi;
@@ -57,6 +58,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         try {
             jsonObject = new JSONObject(JSON_STRING);
             JSONArray question = jsonObject.getJSONArray(DBConfigQuestionActivity.TAG_JSON_ARRAY);
+            JSONArray knowledge = jsonObject.getJSONArray(DBConfigKnowledgeActivity.TAG_JSON_ARRAY);
 
             for (int i=0; i<question.length(); i++) {
                 JSONObject jo = question.getJSONObject(i);
@@ -70,7 +72,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     protected void onPreExecute() {
                         super.onPreExecute();
-                        loading = ProgressDialog.show(QuestionActivity.this,
+                        loading = ProgressDialog.show(JawabQuestionActivity.this,
                                 "Menambahkan",
                                 "Tunggu",
                                 false,false);
@@ -80,12 +82,16 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
                     protected void onPostExecute(String s) {
                         super.onPostExecute(s);
                         loading.dismiss();
-                        Toast.makeText(QuestionActivity.this,s,Toast.LENGTH_LONG).show();
+                        Toast.makeText(JawabQuestionActivity.this,s,Toast.LENGTH_LONG).show();
                     }
 
                     @Override
                     protected String doInBackground(Void... v) {
                         HashMap<String,String> params = new HashMap<>();
+                        double  prosenKlinis        = 0.0;
+                        double  resultKlinis        = 0.0;
+                        double  prosenPenyakit      = 0.0;
+                        RequestHandlerActivity requestHandlerActivity = new RequestHandlerActivity();
                         return null;
                     }
                 }
