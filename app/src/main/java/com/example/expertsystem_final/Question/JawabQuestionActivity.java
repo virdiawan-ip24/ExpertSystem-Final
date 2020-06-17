@@ -18,8 +18,10 @@ import com.example.expertsystem_final.R;
 import com.example.expertsystem_final.RequestHandlerActivity;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class JawabQuestionActivity extends AppCompatActivity implements View.OnClickListener {
@@ -58,7 +60,6 @@ public class JawabQuestionActivity extends AppCompatActivity implements View.OnC
         try {
             jsonObject = new JSONObject(JSON_STRING);
             JSONArray question = jsonObject.getJSONArray(DBConfigQuestionActivity.TAG_JSON_ARRAY);
-            JSONArray knowledge = jsonObject.getJSONArray(DBConfigKnowledgeActivity.TAG_JSON_ARRAY);
 
             for (int i=0; i<question.length(); i++) {
                 JSONObject jo = question.getJSONObject(i);
@@ -87,11 +88,20 @@ public class JawabQuestionActivity extends AppCompatActivity implements View.OnC
 
                     @Override
                     protected String doInBackground(Void... v) {
-                        HashMap<String,String> params = new HashMap<>();
                         double  prosenKlinis        = 0.0;
                         double  resultKlinis        = 0.0;
                         double  prosenPenyakit      = 0.0;
-                        RequestHandlerActivity requestHandlerActivity = new RequestHandlerActivity();
+                        JSONObject jo = null;
+                        ArrayList<HashMap<String,String>> list = new ArrayList<>();
+
+
+                        try {
+                            jo = new JSONObject(JSON_STRING);
+                            JSONArray result = jo.getJSONArray(DBConfigKnowledgeActivity.TAG_JSON_ARRAY);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
                         return null;
                     }
                 }
